@@ -24,7 +24,7 @@ const Users = () => {
       {dataInCSV && (
         <a
           href={`data:text/csv;charset=utf-8,${escape(dataInCSV)}`}
-          download="filename.csv"
+          download="clients.csv"
           style={{ textDecoration: "none" }}
         >
           <Button variant="contained" sx={{ mb: 2 }} color="primary">

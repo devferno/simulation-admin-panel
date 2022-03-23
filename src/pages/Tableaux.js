@@ -13,7 +13,6 @@ const Tableaux = () => {
         <UserComponent
           clients={clients}
           isLoading={isLoading}
-          all
           showdate
           showEmail
           contact

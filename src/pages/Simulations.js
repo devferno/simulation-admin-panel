@@ -22,7 +22,7 @@ const Simulations = () => {
       {dataInCSV && (
         <a
           href={`data:text/csv;charset=utf-8,${escape(dataInCSV)}`}
-          download="filename.csv"
+          download="simulations.csv"
           style={{ textDecoration: "none" }}
         >
           <Button
