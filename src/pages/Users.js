@@ -5,10 +5,12 @@ import UsersComponent from "../components/UserComponent";
 import useFetchClient from "../hooks/useFetchClient";
 import { CustomInput } from "./Signin";
 import { useState } from "react";
+import useFetchOrdered from "../hooks/useFetchOrdered";
 
 const Users = () => {
   const [dataInCSV, setDataCSV] = useState();
   const [clients, , isLoading, filtered, setFiltered] = useFetchClient();
+  const [ordered] = useFetchOrdered();
   const config = {
     headers: {
       Authorization: "JWT " + localStorage.getItem("access"),
@@ -32,6 +34,9 @@ const Users = () => {
         .filter((client) => client.email.includes(value.toLowerCase()))
     );
   };
+  const order = (e) => {
+    setFiltered(ordered);
+  };
   return (
     <>
       <Box
@@ -54,6 +59,7 @@ const Users = () => {
             </Button>
           </a>
         )}
+        <Button onClick={order}>Order By Simulation Count</Button>
         <Box
           component="form"
           sx={{

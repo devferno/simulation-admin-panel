@@ -66,7 +66,7 @@ function User({
           }}
         >
           <Typography variant="body2" color="textSecondary">
-            {all ? "Toutes les Clients " : "Dernier Clients"}
+            {all ? "Toutes les Clients " : "Clients Trop Simule"}
           </Typography>
           {!current && (
             <Link to="/Users" style={{ textDecoration: "none" }}>

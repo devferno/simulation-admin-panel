@@ -7,10 +7,14 @@ import ChartProjet from "../components/ChartProjet";
 import Simulations from "../components/SimulationComponent";
 import Users from "../components/UserComponent";
 import VerifiedBarChart from "../components/VerfiedBarChart";
+import useFetchOrdered from "../hooks/useFetchOrdered";
 
 const Home = () => {
   const [simulations, statistics, isLoading] = useFetchSimulation();
   const [clients, clientsStates, clientsLoading] = useFetchClient();
+  const [ordered] = useFetchOrdered();
+
+  console.log(ordered);
 
   return (
     <Grid container>
@@ -32,7 +36,7 @@ const Home = () => {
         />
       </Grid>
       <Grid item xs={12} sx={{ p: 1 }} md={6}>
-        <Users clients={clients} isLoading={clientsLoading} />
+        <Users clients={ordered} isLoading={clientsLoading} contact />
       </Grid>
 
       <Grid item xs={12} sx={{ p: 1 }} md={6}>

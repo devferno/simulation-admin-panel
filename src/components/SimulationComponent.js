@@ -65,7 +65,7 @@ const Simulations = ({
                       ? simulations.length
                       : all
                       ? simulations.length - 1
-                      : 8
+                      : 10
                   )
                   .map((item, index) => (
                     <TableRow
