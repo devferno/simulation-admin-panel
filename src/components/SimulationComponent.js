@@ -21,6 +21,7 @@ const Simulations = ({
   showUser,
   current,
   all,
+  isFiltered,
 }) => {
   return (
     <>
@@ -58,7 +59,14 @@ const Simulations = ({
             <TableBody>
               {!isLoading &&
                 simulations
-                  .slice(0, all ? simulations.length - 1 : 8)
+                  .slice(
+                    0,
+                    isFiltered
+                      ? simulations.length
+                      : all
+                      ? simulations.length - 1
+                      : 8
+                  )
                   .map((item, index) => (
                     <TableRow
                       key={index}

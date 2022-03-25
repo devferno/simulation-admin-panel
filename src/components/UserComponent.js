@@ -29,6 +29,7 @@ function User({
   showAge,
   showGender,
   current,
+  isFiltered,
 }) {
   const [open, setOpen] = useState(false);
   const handleClose = (event, reason) => {
@@ -97,7 +98,10 @@ function User({
             <TableBody>
               {!isLoading &&
                 clients
-                  .slice(0, all ? clients.length - 1 : 8)
+                  .slice(
+                    0,
+                    isFiltered ? clients.length : all ? clients.length - 1 : 8
+                  )
                   .map((client, index) => (
                     <TableRow
                       key={index}

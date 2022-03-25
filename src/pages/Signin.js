@@ -8,7 +8,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const CustomInput = styled("input")(({ theme }) => ({
+export const CustomInput = styled("input")(({ theme }) => ({
   padding: "14px",
   outline: "none",
   background: "#f3F3F3",

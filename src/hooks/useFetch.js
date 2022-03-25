@@ -17,11 +17,26 @@ export default function useFetch(url, count) {
       .get(url, config)
       .then((res) => {
         setData(res.data);
-        setSliced(res.data.slice(1, count));
+        setSliced(res.data.slice(res.data.length - count, res.data.length));
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        if (err.response.status === 401) {
+          axios
+            .post("/token/refresh/", {
+              refresh: localStorage.getItem("refresh"),
+            })
+            .then((res) => {
+              localStorage.setItem("access", res.data.access);
+              window.location.reload();
+            })
+            .catch((err) => {
+              if (err.response.status === 401) {
+                localStorage.clear();
+                window.location = "/signin";
+              }
+            });
+        }
       });
   }, []);
 

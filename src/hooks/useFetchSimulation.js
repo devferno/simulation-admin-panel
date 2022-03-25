@@ -4,6 +4,7 @@ const useFetchSimulation = () => {
   const [simulations, setSimulations] = useState([]);
   const [statistics, setStatistics] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [filtered, setFiltered] = useState([]);
   const url = "/get-simulations/";
 
   const config = {
@@ -18,6 +19,8 @@ const useFetchSimulation = () => {
       .get(url, config)
       .then((res) => {
         setSimulations(res.data);
+        setFiltered(res.data);
+
         setStatistics(res.data[res.data.length - 1]);
         setLoading(false);
       })
@@ -41,7 +44,7 @@ const useFetchSimulation = () => {
       });
   }, []);
 
-  return [simulations, statistics, isLoading];
+  return [simulations, statistics, isLoading, filtered, setFiltered];
 };
 
 export default useFetchSimulation;
