@@ -81,7 +81,6 @@ const Users = () => {
         clients={filtered}
         isFiltered
         isLoading={isLoading}
-        all
         showdate
         showEmail
         contact

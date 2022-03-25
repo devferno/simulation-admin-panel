@@ -19,7 +19,7 @@ const useFetchClient = () => {
       .get(url, config)
       .then((res) => {
         setclients(res.data);
-        setFiltered(res.data);
+        setFiltered(res.data.slice(0, res.data.length - 1));
         setStatistics(res.data[res.data.length - 1]);
         setLoading(false);
       })
