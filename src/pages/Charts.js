@@ -7,6 +7,7 @@ import VerfiedBarChart from "../components/VerfiedBarChart";
 import NombreSimulation from "../components/NombreSimulation";
 import GenderChart from "../components/GenderChart";
 import MetierChart from "../components/MetierChart";
+import AgeChart from "../components/AgeChart";
 const Charts = () => {
   const [simulations, statistics, isLoading] = useFetchSimulation();
   return (
@@ -25,7 +26,10 @@ const Charts = () => {
       <Grid item xs={12} sx={{ p: 1 }} md={6}>
         <MetierChart />
       </Grid>
-      <Grid item xs={12} md={6} sx={{ p: 1 }}>
+      <Grid item xs={12} md={8} sx={{ p: 1 }}>
+        <AgeChart />
+      </Grid>
+      <Grid item xs={12} md={4} sx={{ p: 1 }}>
         <VerfiedBarChart />
       </Grid>
     </Grid>
