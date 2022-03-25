@@ -6,6 +6,7 @@ import useFetchClient from "../hooks/useFetchClient";
 import { CustomInput } from "./Signin";
 import { useState } from "react";
 import useFetchOrdered from "../hooks/useFetchOrdered";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Users = () => {
   const [dataInCSV, setDataCSV] = useState();
@@ -59,7 +60,9 @@ const Users = () => {
             </Button>
           </a>
         )}
-        <Button onClick={order}>Order By Simulation Count</Button>
+        <Button variant="outlined" onClick={order}>
+          classer pas simulations
+        </Button>
         <Box
           component="form"
           sx={{
@@ -77,8 +80,8 @@ const Users = () => {
             value={value}
             sx={{ background: "white" }}
           />
-          <Button variant="oultined" type="submit">
-            Search
+          <Button variant="outlined" sx={{ minHeight: "43px" }} type="submit">
+            <SearchIcon />
           </Button>
         </Box>
       </Box>

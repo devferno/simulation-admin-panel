@@ -4,6 +4,7 @@ import SimulationsComponent from "../components/SimulationComponent";
 import axios from "axios";
 import { Button, Box } from "@mui/material";
 import { CustomInput } from "./Signin";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Simulations = () => {
   const [simulations, , isLoading, filtered, setFiltered] =
@@ -76,8 +77,8 @@ const Simulations = () => {
             value={value}
             sx={{ background: "white" }}
           />
-          <Button variant="oultined" type="submit">
-            Search
+          <Button variant="outlined" sx={{ minHeight: "43px" }} type="submit">
+            <SearchIcon />
           </Button>
         </Box>
       </Box>
